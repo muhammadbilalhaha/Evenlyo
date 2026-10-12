@@ -1,0 +1,60 @@
+/* 1. Imports MUST be first (before any other rules) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* 2. Tailwind v4 Theme Configuration */
+@theme {
+  --color-brand-pink: #E91E8C;
+  --color-brand-dark: #111111;
+  --color-brand-gray: #F8F9FB;
+  --font-sans: "Poppins", "Inter", sans-serif;
+}
+
+/* 3. Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Custom Accordion Animation (for FAQ) */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary ~ * {
+  animation: sweep .3s ease-in-out;
+}
+@keyframes sweep {
+  0%    { opacity: 0; transform: translateY(-10px); }
+  100%  { opacity: 1; transform: translateY(0); }
+}
+
+/* 5. Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 6. Utility Helper (if needed) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
